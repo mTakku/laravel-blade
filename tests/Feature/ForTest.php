@@ -22,4 +22,24 @@ class ForTest extends TestCase
             ->assertSeeText("8")
             ->assertSeeText("9");
     }
+
+    public function testForEach()
+    {
+        $this->view("foreach", ["hobbies" => ["Coding", "Gaming"]])
+            ->assertSeeText("Coding")
+            ->assertSeeText("Gaming");
+    }
+
+    public function testForElse()
+    {
+        $this->view("forelse", ["hobbies" => ["Coding", "Gaming"]])
+            ->assertSeeText("Coding")
+            ->assertSeeText("Gaming")
+            ->assertDontSeeText("Tidak Punya Hobby");
+
+        $this->view("forelse", ["hobbies" => []])
+            ->assertDontSeeText("Coding")
+            ->assertDontSeeText("Gaming")
+            ->assertSeeText("Tidak Punya Hobby");
+    }
 }
