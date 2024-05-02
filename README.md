@@ -161,8 +161,6 @@
   <b>KESIMPULAN</b>
 </p>
 
-> - Logging penting dalam pengembangan aplikasi untuk mencatat informasi kejadian.
-
 
 
 
